@@ -1,17 +1,22 @@
 # This is a basic workflow to help you get started with Actions
 
 name: CI
-
-# Controls when the action will run. 
 on:
-  # Triggers the workflow on push or pull request events but only for the main branch
+  # Trigger analysis when pushing in main or pull requests, and when creating
+  # a pull request. 
   push:
-  name: Main Workflow
-  jobs:
-    sonarQubeTrigger:
-      name: SonarQube Trigger
-      runs-on: ubuntu-latest
-      steps:
-      - uses: actions/checkout@main
-      - name: SonarQube Scan
-        uses: SonarSource/sonarqube-scan-action@v1.0.0
+    branches:
+      - main
+  pull_request:
+      types: [opened, synchronize, reopened]
+name: Main Workflow
+jobs:
+  sonarcloud:
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@v2
+      with:
+        # Disabling shallow clone is recommended for improving relevancy of reporting
+        fetch-depth: 0
+    - name: SonarCloud Scan
+      uses: sonarsource/sonarcloud-github-action@main
