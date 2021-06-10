@@ -1,4 +1,4 @@
-name: Main Workflow
+name: CI
 on:
   # Trigger analysis when pushing in main or pull requests, and when creating
   # a pull request. 
@@ -21,7 +21,7 @@ jobs:
         projectBaseDir: .
         args: >
           -Dsonar.organization=scenage
-          -Dsonar.projectKey=notes-app:1.0.0
+          -Dsonar.projectKey=notes-app
       env:
         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
