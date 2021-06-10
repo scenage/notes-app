@@ -1,7 +1,4 @@
-# This is a basic workflow to help you get started with Actions
-
-name: CI
-on:
+ on:
   # Trigger analysis when pushing in main or pull requests, and when creating
   # a pull request. 
   push:
