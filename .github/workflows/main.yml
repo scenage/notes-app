@@ -21,7 +21,7 @@ jobs:
         projectBaseDir: .
         args: >
           -Dsonar.organization=scenage
-          -Dsonar.projectKey=notes-app
+          -Dsonar.projectKey=scenage_notes-app
       env:
         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
