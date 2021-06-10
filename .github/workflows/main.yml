@@ -1,4 +1,5 @@
- on:
+name: Main Workflow
+on:
   # Trigger analysis when pushing in main or pull requests, and when creating
   # a pull request. 
   push:
@@ -6,7 +7,6 @@
       - main
   pull_request:
       types: [opened, synchronize, reopened]
-name: Main Workflow
 jobs:
   sonarcloud:
     runs-on: ubuntu-latest
